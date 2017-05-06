@@ -9,7 +9,7 @@ It's limited in customisability, replaces the keyboard, and can be slower than s
 
 Sometimes you may only want to capture the day and month, or the month and year, such as with credit card expiry dates.
 
-![uidatepickerexample](images/uidatepickerexample.png)
+![](images/uidatepickerexample.png)
 
 
 ## DateTextField
@@ -17,7 +17,7 @@ Sometimes you may only want to capture the day and month, or the month and year,
 
 DateTextField aims to not replace UIDatePicker but to provide an alternative where UIDatePicker may not be the best tool for the job.
 
-![demo](images/demo.gif)
+![](images/demo.gif)
 
 ## Installation
 
@@ -34,14 +34,15 @@ After initialising there's only two properties you really need to take care of.
 
 
 
-#### `dateFormat`
+**`dateFormat`**
+
 Currenty supports `.monthYear`, `.dayMonthYear`, and `.monthDayYear` formats. Would love to support custom formats.
 
-#### `separator`
+**`separator`**
 
 Determines what separator you would like to use between date elements. Most common used are dashes `-`, and slashes `/`.
 
-#### `date`
+**`date`**
 
 **set:** Sets the `text` property of `DateTextField` to the supplied date. Formatted as determined by `separator` and `dateFormat`.
 
