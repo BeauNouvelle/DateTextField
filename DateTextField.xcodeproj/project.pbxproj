@@ -1,0 +1,340 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1B754F91EBDAFE200472852 /* DateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B754F81EBDAFE200472852 /* DateTextField.swift */; };
+		A1B755041EBDAFEE00472852 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B754FB1EBDAFEE00472852 /* AppDelegate.swift */; };
+		A1B755051EBDAFEE00472852 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B754FC1EBDAFEE00472852 /* Assets.xcassets */; };
+		A1B755061EBDAFEE00472852 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1B754FD1EBDAFEE00472852 /* LaunchScreen.storyboard */; };
+		A1B755071EBDAFEE00472852 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1B754FF1EBDAFEE00472852 /* Main.storyboard */; };
+		A1B755081EBDAFEE00472852 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1B755011EBDAFEE00472852 /* Info.plist */; };
+		A1B755091EBDAFEE00472852 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B755031EBDAFEE00472852 /* ViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A12016091E7E370000D1E685 /* DateTextField.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DateTextField.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B754F81EBDAFE200472852 /* DateTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTextField.swift; sourceTree = "<group>"; };
+		A1B754FB1EBDAFEE00472852 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A1B754FC1EBDAFEE00472852 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A1B754FE1EBDAFEE00472852 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A1B755001EBDAFEE00472852 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A1B755011EBDAFEE00472852 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1B755031EBDAFEE00472852 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A12016061E7E370000D1E685 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A12016001E7E370000D1E685 = {
+			isa = PBXGroup;
+			children = (
+				A120160B1E7E370000D1E685 /* DateTextField */,
+				A120160A1E7E370000D1E685 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A120160A1E7E370000D1E685 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A12016091E7E370000D1E685 /* DateTextField.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A120160B1E7E370000D1E685 /* DateTextField */ = {
+			isa = PBXGroup;
+			children = (
+				A1B754FA1EBDAFEE00472852 /* Demo */,
+				A1B754F71EBDAFE200472852 /* DateTextField */,
+			);
+			path = DateTextField;
+			sourceTree = "<group>";
+		};
+		A1B754F71EBDAFE200472852 /* DateTextField */ = {
+			isa = PBXGroup;
+			children = (
+				A1B754F81EBDAFE200472852 /* DateTextField.swift */,
+			);
+			name = DateTextField;
+			sourceTree = "<group>";
+		};
+		A1B754FA1EBDAFEE00472852 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				A1B754FB1EBDAFEE00472852 /* AppDelegate.swift */,
+				A1B754FC1EBDAFEE00472852 /* Assets.xcassets */,
+				A1B754FD1EBDAFEE00472852 /* LaunchScreen.storyboard */,
+				A1B754FF1EBDAFEE00472852 /* Main.storyboard */,
+				A1B755011EBDAFEE00472852 /* Info.plist */,
+				A1B755021EBDAFEE00472852 /* untitled folder */,
+				A1B755031EBDAFEE00472852 /* ViewController.swift */,
+			);
+			path = Demo;
+			sourceTree = SOURCE_ROOT;
+		};
+		A1B755021EBDAFEE00472852 /* untitled folder */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "untitled folder";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A12016081E7E370000D1E685 /* DateTextField */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A120161B1E7E370100D1E685 /* Build configuration list for PBXNativeTarget "DateTextField" */;
+			buildPhases = (
+				A12016051E7E370000D1E685 /* Sources */,
+				A12016061E7E370000D1E685 /* Frameworks */,
+				A12016071E7E370000D1E685 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DateTextField;
+			productName = DateTextField;
+			productReference = A12016091E7E370000D1E685 /* DateTextField.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A12016011E7E370000D1E685 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Beau Nouvelle";
+				TargetAttributes = {
+					A12016081E7E370000D1E685 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = RCFBK97QU7;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A12016041E7E370000D1E685 /* Build configuration list for PBXProject "DateTextField" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A12016001E7E370000D1E685;
+			productRefGroup = A120160A1E7E370000D1E685 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A12016081E7E370000D1E685 /* DateTextField */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A12016071E7E370000D1E685 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B755051EBDAFEE00472852 /* Assets.xcassets in Resources */,
+				A1B755071EBDAFEE00472852 /* Main.storyboard in Resources */,
+				A1B755061EBDAFEE00472852 /* LaunchScreen.storyboard in Resources */,
+				A1B755081EBDAFEE00472852 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A12016051E7E370000D1E685 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B755091EBDAFEE00472852 /* ViewController.swift in Sources */,
+				A1B754F91EBDAFE200472852 /* DateTextField.swift in Sources */,
+				A1B755041EBDAFEE00472852 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A1B754FD1EBDAFEE00472852 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1B754FE1EBDAFEE00472852 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A1B754FF1EBDAFEE00472852 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1B755001EBDAFEE00472852 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A12016191E7E370100D1E685 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A120161A1E7E370100D1E685 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A120161C1E7E370100D1E685 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RCFBK97QU7;
+				INFOPLIST_FILE = "$(SRCROOT)/Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pearpi.DateTextField;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A120161D1E7E370100D1E685 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RCFBK97QU7;
+				INFOPLIST_FILE = "$(SRCROOT)/Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pearpi.DateTextField;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A12016041E7E370000D1E685 /* Build configuration list for PBXProject "DateTextField" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A12016191E7E370100D1E685 /* Debug */,
+				A120161A1E7E370100D1E685 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A120161B1E7E370100D1E685 /* Build configuration list for PBXNativeTarget "DateTextField" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A120161C1E7E370100D1E685 /* Debug */,
+				A120161D1E7E370100D1E685 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A12016011E7E370000D1E685 /* Project object */;
+}

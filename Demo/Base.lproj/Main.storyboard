@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DateTextField" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rmw-HU-cBL" customClass="DateTextField" customModule="DateTextField" customModuleProvider="target">
+                                <rect key="frame" x="16" y="70" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhV-MD-s3s">
+                                <rect key="frame" x="166" y="108" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ah7-J2-FbK">
+                                <rect key="frame" x="16" y="150" width="343" height="29"/>
+                                <segments>
+                                    <segment title="mm/yyyy"/>
+                                    <segment title="dd/mm/yyyy"/>
+                                    <segment title="mm/dd/yyyy"/>
+                                </segments>
+                                <connections>
+                                    <action selector="dateFormatChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="ClS-Fc-Pss"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNw-Y7-p8M">
+                                <rect key="frame" x="113" y="205" width="149" height="30"/>
+                                <state key="normal" title="Show Formatted Date"/>
+                                <connections>
+                                    <action selector="showDate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Njk-Pp-6s4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qNw-Y7-p8M" firstAttribute="top" secondItem="Ah7-J2-FbK" secondAttribute="bottom" constant="27" id="Jcd-5F-poH"/>
+                            <constraint firstItem="Ah7-J2-FbK" firstAttribute="top" secondItem="fhV-MD-s3s" secondAttribute="bottom" constant="21" id="TOd-sM-uwW"/>
+                            <constraint firstItem="fhV-MD-s3s" firstAttribute="centerX" secondItem="Rmw-HU-cBL" secondAttribute="centerX" id="UMg-Pb-ujS"/>
+                            <constraint firstItem="Ah7-J2-FbK" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="V1j-mS-Z2Q"/>
+                            <constraint firstItem="qNw-Y7-p8M" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dZ8-X4-n11"/>
+                            <constraint firstItem="Rmw-HU-cBL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gMt-pd-g4M"/>
+                            <constraint firstItem="Rmw-HU-cBL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="gfS-dq-V7B"/>
+                            <constraint firstItem="Rmw-HU-cBL" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="msR-AB-C25"/>
+                            <constraint firstItem="fhV-MD-s3s" firstAttribute="top" secondItem="Rmw-HU-cBL" secondAttribute="bottom" constant="8" id="oxc-ca-gsG"/>
+                            <constraint firstItem="Ah7-J2-FbK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qSN-fb-0ji"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateTextField" destination="Rmw-HU-cBL" id="kSV-ZY-AZ8"/>
+                        <outlet property="displayDate" destination="fhV-MD-s3s" id="mVg-d8-QFF"/>
+                        <outlet property="formatTypeSegmentedControl" destination="Ah7-J2-FbK" id="xmH-QX-ol6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-447.19999999999999" y="127.28635682158921"/>
+        </scene>
+    </scenes>
+</document>
