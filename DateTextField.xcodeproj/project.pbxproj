@@ -79,18 +79,10 @@
 				A1B754FD1EBDAFEE00472852 /* LaunchScreen.storyboard */,
 				A1B754FF1EBDAFEE00472852 /* Main.storyboard */,
 				A1B755011EBDAFEE00472852 /* Info.plist */,
-				A1B755021EBDAFEE00472852 /* untitled folder */,
 				A1B755031EBDAFEE00472852 /* ViewController.swift */,
 			);
 			path = Demo;
 			sourceTree = SOURCE_ROOT;
-		};
-		A1B755021EBDAFEE00472852 /* untitled folder */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "untitled folder";
-			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
