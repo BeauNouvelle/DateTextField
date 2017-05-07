@@ -13,9 +13,9 @@ protocol DateTextFieldDelegate: class {
     func dateDidChange(dateTextField: DateTextField)
 }
 
-class DateTextField: UITextField {
+public class DateTextField: UITextField {
     
-    enum format: String {
+    public enum format: String {
         case monthYear = "MM'$'yyyy"
         case dayMonthYear = "dd'*'MM'$'yyyy"
         case monthDayYear = "MM'$'dd'*'yyyy"
@@ -25,12 +25,12 @@ class DateTextField: UITextField {
     private let digitOnlyRegex = try! NSRegularExpression(pattern: "[^0-9]+", options: NSRegularExpression.Options(rawValue: 0))
     private let dateFormatter = DateFormatter()
     
-    var dateFormat = format.dayMonthYear
-    var separator: String = " / "
+    public var dateFormat = format.dayMonthYear
+    public var separator: String = " / "
     weak var customDelegate: DateTextFieldDelegate?
     
     /// Parses the `text` property into a `Date` and returns if successful.
-    var date: Date? {
+    public var date: Date? {
         get {
             let format = dateFormat.rawValue.replacingOccurrences(of: "$", with: separator).replacingOccurrences(of: "*", with: separator)
             dateFormatter.dateFormat = format
@@ -53,7 +53,7 @@ class DateTextField: UITextField {
         setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
@@ -73,7 +73,7 @@ class DateTextField: UITextField {
 // MARK: - UITextFieldDelegate
 extension DateTextField: UITextFieldDelegate {
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         if string.characters.count == 0 {
             customDelegate?.dateDidChange(dateTextField: self)
