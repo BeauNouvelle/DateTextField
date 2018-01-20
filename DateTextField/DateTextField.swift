@@ -65,7 +65,7 @@ public class DateTextField: UITextField {
     }
     
     func numberOnlyString(with string: String) -> String {
-        return digitOnlyRegex.stringByReplacingMatches(in: string, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, string.characters.count), withTemplate: "")
+        return digitOnlyRegex.stringByReplacingMatches(in: string, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, string.count), withTemplate: "")
     }
     
 }
@@ -75,7 +75,7 @@ extension DateTextField: UITextFieldDelegate {
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if string.characters.count == 0 {
+        if string.count == 0 {
             customDelegate?.dateDidChange(dateTextField: self)
             return true
         }
@@ -89,15 +89,15 @@ extension DateTextField: UITextFieldDelegate {
         
         switch dateFormat {
         case .monthYear:
-            guard numbersOnly.characters.count <= 6 else { return false }
+            guard numbersOnly.count <= 6 else { return false }
             let splitString = split(string: numbersOnly, format: [2,4])
             textField.text = final(day: "", month: splitString.count > 0 ? splitString[0] : "", year: splitString.count > 1 ? splitString[1] : "")
         case .dayMonthYear:
-            guard numbersOnly.characters.count <= 8 else { return false }
+            guard numbersOnly.count <= 8 else { return false }
             let splitString = split(string: numbersOnly, format: [2,2,4])
             textField.text = final(day: splitString.count > 0 ? splitString[0] : "", month: splitString.count > 1 ? splitString[1] : "", year: splitString.count > 2 ? splitString[2] : "")
         case .monthDayYear:
-            guard numbersOnly.characters.count <= 8 else { return false }
+            guard numbersOnly.count <= 8 else { return false }
             let splitString = split(string: numbersOnly, format: [2,2,4])
             textField.text = final(day: splitString.count > 1 ? splitString[1] : "", month: splitString.count > 0 ? splitString[0] : "", year: splitString.count > 2 ? splitString[2] : "")
         }
@@ -111,12 +111,12 @@ extension DateTextField: UITextFieldDelegate {
         var splitString = [String]()
         
         for item in format {
-            if mutableString.characters.count == 0 {
+            if mutableString.count == 0 {
                 break
             }
-            if mutableString.characters.count >= item {
+            if mutableString.count >= item {
                 let index = string.index(mutableString.startIndex, offsetBy: item)
-                splitString.append(mutableString.substring(to: index))
+                splitString.append(String(mutableString[..<index]))
                 mutableString.removeSubrange(Range(uncheckedBounds: (mutableString.startIndex, index)))
             } else {
                 splitString.append(mutableString)
@@ -134,12 +134,12 @@ extension DateTextField: UITextFieldDelegate {
         dateString = dateString.replacingOccurrences(of: "MM", with: month)
         dateString = dateString.replacingOccurrences(of: "yyyy", with: year)
         
-        if day.characters.count >= 2 {
+        if day.count >= 2 {
             dateString = dateString.replacingOccurrences(of: "*", with: separator)
         } else {
             dateString = dateString.replacingOccurrences(of: "*", with: "")
         }
-        if month.characters.count >= 2 {
+        if month.count >= 2 {
             dateString = dateString.replacingOccurrences(of: "$", with: separator)
         } else {
             dateString = dateString.replacingOccurrences(of: "$", with: "")
@@ -164,7 +164,7 @@ extension String {
     }
     
     fileprivate func stringByRemovingEmoji() -> String {
-        return String(self.characters.filter { !$0.isEmoji() })
+        return String(self.filter { !$0.isEmoji() })
     }
     
 }
