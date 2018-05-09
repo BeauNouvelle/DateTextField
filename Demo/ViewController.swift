@@ -10,11 +10,11 @@ import UIKit
 import DateTextField
 
 class ViewController: UIViewController {
-    
+
     @IBOutlet weak var dateTextField: DateTextField!
     @IBOutlet weak var displayDate: UILabel!
     @IBOutlet weak var formatTypeSegmentedControl: UISegmentedControl!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         dateTextField.becomeFirstResponder()
@@ -29,9 +29,9 @@ class ViewController: UIViewController {
             displayDate.text = formatter.string(from: dateTextField.date!)
         }
     }
-    
+
     @IBAction func dateFormatChanged(_ sender: UISegmentedControl) {
-        
+
         switch sender.selectedSegmentIndex {
         case 0:
             dateTextField.placeholder = "MM/YYYY"
@@ -48,7 +48,6 @@ class ViewController: UIViewController {
         default:
             preconditionFailure("Selected index not handled")
         }
-        
+
     }
 }
-
