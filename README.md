@@ -1,31 +1,32 @@
-This projects goal is to do for dates what [PhoneNumberKit](https://github.com/marmelroy/PhoneNumberKit) has done for phone numbers.
-
-> **NOTE:** Looking to the Swift community for help to improve this project as it is still in development.
-
-
-The current date picker isn't appropriate in all cases.
-
-It's limited in customisability, replaces the keyboard, and can be slower than simply typing in a date.
-
-Sometimes you may only want to capture the day and month, or the month and year, such as with credit card expiry dates.
-
-![](images/uidatepickerexample.png)
-
-
-## DateTextField
-
+# DateTextField
 
 DateTextField aims to not replace UIDatePicker but to provide an alternative where UIDatePicker may not be the best tool for the job.
+In many cases UIDatePicker falls short, especially when you're trying to capture a users birth date. Users can be impatient, and many will just submit the default value of the date picker.
+
+Make it easier for users by allowing them to type in their dates.
+
+DateTextField will handle all the formatting and parsing for you.
 
 ![](images/demo.gif)
 
-## Installation
+## 📝 Requirements
+* Swift 4.1
+* iOS 10.0+
+* Xcode 9
 
-> This project doesn't currently support Cocoapods or Carthage.
+## 🧙‍♂️ Installation
 
+### Manual
 Simply drag the DateTextField.swift file into your project.
 
-## Usage
+### Carthage
+- Add `github "BeauNouvelle/DateTextField"` to your `Cartfile`
+
+More information on installing and setting up Carthage can be found here:
+https://github.com/Carthage/Carthage
+
+
+## 👩‍💻 Usage
 
 After initialising there's only two properties you really need to take care of.
 
@@ -33,14 +34,13 @@ After initialising there's only two properties you really need to take care of.
     myDateTextField.separator = "-"
 
 
-
 **`dateFormat`**
 
-Currenty supports `.monthYear`, `.dayMonthYear`, and `.monthDayYear` formats. Would love to support custom formats.
+Currenty supports `.monthYear`, `.dayMonthYear`, and `.monthDayYear` formats.
 
 **`separator`**
 
-Determines what separator you would like to use between date elements. Most common used are dashes `-`, and slashes `/`.
+Determines what separator you would like to use between date elements. Most common used are dashes `-`, and slashes `/`, but you can use whatever you like.
 
 **`date`**
 
@@ -50,5 +50,3 @@ Determines what separator you would like to use between date elements. Most comm
 
 
 Be sure to have a look at the demo project to see it in use.
-
- 
