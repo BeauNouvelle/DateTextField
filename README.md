@@ -1,4 +1,4 @@
-🗓 # DateTextField
+# 🗓 DateTextField
 
 DateTextField aims to not replace UIDatePicker but to provide an alternative where UIDatePicker may not be the best tool for the job.
 In many cases UIDatePicker falls short, especially when you're trying to capture a users birth date. Users can be impatient, and many will just submit the default value of the date picker.
@@ -9,24 +9,24 @@ DateTextField will handle all the formatting and parsing for you.
 
 ![](images/demo.gif)
 
-## Requirements ##
+## Requirements
 * Swift 4.1
 * iOS 10.0+
 * Xcode 9
 
-🧙‍♂️ ## Installation ##
+# 🧙‍♂️ Installation
 
-#### Manual ####
+#### Manual
 Simply drag the DateTextField.swift file into your project.
 
-#### Carthage ####
+#### Carthage
 - Add `github "BeauNouvelle/DateTextField"` to your `Cartfile`
 
 More information on installing and setting up Carthage can be found here:
 https://github.com/Carthage/Carthage
 
 
-👩‍💻 ## Usage ##
+# 👩‍💻 Usage
 
 After initialising there's only two properties you really need to take care of.
 
