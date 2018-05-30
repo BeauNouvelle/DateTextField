@@ -9,17 +9,17 @@ DateTextField will handle all the formatting and parsing for you.
 
 ![](images/demo.gif)
 
-## Requirements
+# 📝 Requirements
 * Swift 4.1
 * iOS 10.0+
 * Xcode 9
 
 # 🧙‍♂️ Installation
 
-#### Manual
+## Manual
 Simply drag the DateTextField.swift file into your project.
 
-#### Carthage
+## Carthage
 - Add `github "BeauNouvelle/DateTextField"` to your `Cartfile`
 
 More information on installing and setting up Carthage can be found here:
