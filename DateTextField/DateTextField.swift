@@ -22,8 +22,6 @@ public class DateTextField: UITextField {
     }
 
     // MARK: - Properties
-    private let digitOnlyRegex = try! NSRegularExpression(pattern: "[^0-9]+",
-                                                          options: NSRegularExpression.Options(rawValue: 0))
     private let dateFormatter = DateFormatter()
     private let alwaysVisiblePlaceHolder = UILabel()
 
@@ -71,12 +69,18 @@ public class DateTextField: UITextField {
         super.delegate = self
         keyboardType = .numberPad
         autocorrectionType = .no
+
+        insertSubview(alwaysVisiblePlaceHolder, at: 0)
+        alwaysVisiblePlaceHolder.backgroundColor = backgroundColor
+        backgroundColor = .clear
     }
 
-    func numberOnlyString(with string: String) -> String {
+    func numberOnlyString(with string: String) -> String? {
         let expression = NSRegularExpression.MatchingOptions(rawValue: 0)
         let range = NSRange(location: 0, length: string.count)
-        return digitOnlyRegex.stringByReplacingMatches(in: string, options: expression, range: range, withTemplate: "")
+        let digitOnlyRegex = try? NSRegularExpression(pattern: "[^0-9]+",
+                                                          options: NSRegularExpression.Options(rawValue: 0))
+        return digitOnlyRegex?.stringByReplacingMatches(in: string, options: expression, range: range, withTemplate: "")
     }
 
 }
@@ -84,19 +88,26 @@ public class DateTextField: UITextField {
 // MARK: - UITextFieldDelegate
 extension DateTextField: UITextFieldDelegate {
 
-    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(
+        _ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
         if string.count == 0 {
             customDelegate?.dateDidChange(dateTextField: self)
             return true
         }
 
-        guard let swiftRange = textField.text?.getRange(from: range) else { return false }
-        guard let replacedString = textField.text?.replacingCharacters(in: swiftRange, with: string) else { return false }
+        guard let swiftRange = textField.text?.getRange(from: range) else {
+            return false
+        }
+        guard let replacedString = textField.text?.replacingCharacters(in: swiftRange, with: string) else {
+            return false
+        }
 
         // Because you never know what people will paste in here, and some emoji have numbers present.
         let emojiFreeString = replacedString.stringByRemovingEmoji()
-        let numbersOnly = numberOnlyString(with: emojiFreeString)
+        guard let numbersOnly = numberOnlyString(with: emojiFreeString) else {
+            return false
+        }
 
         switch dateFormat {
         case .monthYear:
@@ -174,12 +185,16 @@ extension String {
 
     fileprivate func getRange(from nsRange: NSRange) -> Range<String.Index>? {
         guard
-            let from16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location, limitedBy: utf16.endIndex),
-            let to16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location + nsRange.length, limitedBy: utf16.endIndex),
-            let from = from16.samePosition(in: self),
-            let to = to16.samePosition(in: self)
+            let from16 = utf16.index(utf16.startIndex,
+                                     offsetBy: nsRange.location,
+                                     limitedBy: utf16.endIndex),
+            let to16 = utf16.index(utf16.startIndex,
+                                   offsetBy: nsRange.location + nsRange.length,
+                                   limitedBy: utf16.endIndex),
+            let start = from16.samePosition(in: self),
+            let end = to16.samePosition(in: self)
             else { return nil }
-        return from ..< to
+        return start ..< end
     }
 
     fileprivate func stringByRemovingEmoji() -> String {
