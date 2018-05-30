@@ -22,23 +22,32 @@ public class DateTextField: UITextField {
     }
 
     // MARK: - Properties
-    private let digitOnlyRegex = try! NSRegularExpression(pattern: "[^0-9]+", options: NSRegularExpression.Options(rawValue: 0))
+    private let digitOnlyRegex = try! NSRegularExpression(pattern: "[^0-9]+",
+                                                          options: NSRegularExpression.Options(rawValue: 0))
     private let dateFormatter = DateFormatter()
+    private let alwaysVisiblePlaceHolder = UILabel()
 
+    /// The order for which the date segments appear. e.g. "day/month/year", "month/day/year", "month/year"
+    /// **Default:** `Format.dayMonthYear`
     public var dateFormat = Format.dayMonthYear
+
+    /// The symbol you wish to use to separate each date segment. e.g. "01 - 01 - 2012", "01 / 03 / 2019"
+    /// **Default:** `" / "`
     public var separator: String = " / "
     weak var customDelegate: DateTextFieldDelegate?
 
-    /// Parses the `text` property into a `Date` and returns if successful.
+    /// Parses the `text` property into a `Date` and returns that date if successful.
     public var date: Date? {
         get {
-            let format = dateFormat.rawValue.replacingOccurrences(of: "$", with: separator).replacingOccurrences(of: "*", with: separator)
+            let replacedFirstSymbol = dateFormat.rawValue.replacingOccurrences(of: "$", with: separator)
+            let format = replacedFirstSymbol.replacingOccurrences(of: "*", with: separator)
             dateFormatter.dateFormat = format
             return dateFormatter.date(from: text ?? "")
         }
         set {
             if newValue != nil {
-                let format = dateFormat.rawValue.replacingOccurrences(of: "$", with: separator).replacingOccurrences(of: "*", with: separator)
+                let replacedFirstSymbol = dateFormat.rawValue.replacingOccurrences(of: "$", with: separator)
+                let format = replacedFirstSymbol.replacingOccurrences(of: "*", with: separator)
                 dateFormatter.dateFormat = format
                 text = dateFormatter.string(from: newValue!)
             } else {
@@ -65,7 +74,9 @@ public class DateTextField: UITextField {
     }
 
     func numberOnlyString(with string: String) -> String {
-        return digitOnlyRegex.stringByReplacingMatches(in: string, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSRange(location: 0, length: string.count), withTemplate: "")
+        let expression = NSRegularExpression.MatchingOptions(rawValue: 0)
+        let range = NSRange(location: 0, length: string.count)
+        return digitOnlyRegex.stringByReplacingMatches(in: string, options: expression, range: range, withTemplate: "")
     }
 
 }
@@ -91,15 +102,23 @@ extension DateTextField: UITextFieldDelegate {
         case .monthYear:
             guard numbersOnly.count <= 6 else { return false }
             let splitString = split(string: numbersOnly, format: [2, 4])
-            textField.text = final(day: "", month: splitString.count > 0 ? splitString[0] : "", year: splitString.count > 1 ? splitString[1] : "")
+            let month = splitString.count > 0 ? splitString[0] : ""
+            let year = splitString.count > 1 ? splitString[1] : ""
+            textField.text = final(day: "", month: month, year: year)
         case .dayMonthYear:
             guard numbersOnly.count <= 8 else { return false }
             let splitString = split(string: numbersOnly, format: [2, 2, 4])
-            textField.text = final(day: splitString.count > 0 ? splitString[0] : "", month: splitString.count > 1 ? splitString[1] : "", year: splitString.count > 2 ? splitString[2] : "")
+            let day = splitString.count > 0 ? splitString[0] : ""
+            let month = splitString.count > 1 ? splitString[1] : ""
+            let year = splitString.count > 2 ? splitString[2] : ""
+            textField.text = final(day: day, month: month, year: year)
         case .monthDayYear:
             guard numbersOnly.count <= 8 else { return false }
             let splitString = split(string: numbersOnly, format: [2, 2, 4])
-            textField.text = final(day: splitString.count > 1 ? splitString[1] : "", month: splitString.count > 0 ? splitString[0] : "", year: splitString.count > 2 ? splitString[2] : "")
+            let day = splitString.count > 1 ? splitString[1] : ""
+            let month = splitString.count > 0 ? splitString[0] : ""
+            let year = splitString.count > 2 ? splitString[2] : ""
+            textField.text = final(day: day, month: month, year: year)
         }
         customDelegate?.dateDidChange(dateTextField: self)
         return false
