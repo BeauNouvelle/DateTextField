@@ -23,6 +23,7 @@ public class DateTextField: UITextField {
 
     // MARK: - Properties
     private let dateFormatter = DateFormatter()
+    private let alwaysVisiblePlaceHolder = UILabel()
 
     /// The order for which the date segments appear. e.g. "day/month/year", "month/day/year", "month/year"
     /// **Default:** `Format.dayMonthYear`
@@ -68,6 +69,10 @@ public class DateTextField: UITextField {
         super.delegate = self
         keyboardType = .numberPad
         autocorrectionType = .no
+
+        insertSubview(alwaysVisiblePlaceHolder, at: 0)
+        alwaysVisiblePlaceHolder.backgroundColor = backgroundColor
+        backgroundColor = .clear
     }
 
     func numberOnlyString(with string: String) -> String? {
