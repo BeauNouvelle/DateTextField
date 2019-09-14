@@ -10,9 +10,9 @@ DateTextField will handle all the formatting and parsing for you.
 ![](images/demo.gif)
 
 ## 📝 Requirements
-* Swift 4.1
+* Swift 5.1
 * iOS 10.0+
-* Xcode 9
+* Xcode 11
 
 ## 🧙‍♂️ Installation
 
