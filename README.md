@@ -25,6 +25,9 @@ Simply drag the DateTextField.swift file into your project.
 More information on installing and setting up Carthage can be found here:
 https://github.com/Carthage/Carthage
 
+### Cocoapods
+- Add `DateTextField` to your podfile.
+- Add `import DateTextField` to any file where you wish to use it.
 
 ## 👩‍💻 Usage
 
