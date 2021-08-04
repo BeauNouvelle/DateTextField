@@ -39,7 +39,7 @@ After initialising there's only two properties you really need to take care of.
 
 **`dateFormat`**
 
-Currenty supports `.monthYear`, `.dayMonthYear`, and `.monthDayYear` formats.
+Currenty supports `.monthYear`, `.dayMonthYear`, `.monthDayYear` and `.yearMonthDay` formats.
 
 **`separator`**
 
