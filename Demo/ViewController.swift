@@ -45,6 +45,10 @@ class ViewController: UIViewController {
             dateTextField.placeholder = "MM/DD/YYYY"
             dateTextField.text = ""
             dateTextField.dateFormat = .monthDayYear
+        case 3:
+            dateTextField.placeholder = "YYYY/MM/DD"
+            dateTextField.text = ""
+            dateTextField.dateFormat = .yearMonthDay
         default:
             preconditionFailure("Selected index not handled")
         }

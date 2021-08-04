@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-protocol DateTextFieldDelegate: class {
+protocol DateTextFieldDelegate: AnyObject {
     func dateDidChange(dateTextField: DateTextField)
 }
 
@@ -19,6 +19,14 @@ public class DateTextField: UITextField {
         case monthYear = "MM'$'yyyy"
         case dayMonthYear = "dd'*'MM'$'yyyy"
         case monthDayYear = "MM'$'dd'*'yyyy"
+        case yearMonthDay = "yyyy'&'MM'$'dd"
+        
+        func format(separator: String) -> String {
+            return self.rawValue
+                .replacingOccurrences(of: "$", with: separator)
+                .replacingOccurrences(of: "*", with: separator)
+                .replacingOccurrences(of: "&", with: separator)
+        }
     }
 
     // MARK: - Properties
@@ -35,18 +43,15 @@ public class DateTextField: UITextField {
     weak var customDelegate: DateTextFieldDelegate?
 
     /// Parses the `text` property into a `Date` and returns that date if successful.
+    /// If unsuccessful, the value will be nil and you'll need to show this in your UI.
     public var date: Date? {
         get {
-            let replacedFirstSymbol = dateFormat.rawValue.replacingOccurrences(of: "$", with: separator)
-            let format = replacedFirstSymbol.replacingOccurrences(of: "*", with: separator)
-            dateFormatter.dateFormat = format
+            dateFormatter.dateFormat = dateFormat.format(separator: separator)
             return dateFormatter.date(from: text ?? "")
         }
         set {
             if newValue != nil {
-                let replacedFirstSymbol = dateFormat.rawValue.replacingOccurrences(of: "$", with: separator)
-                let format = replacedFirstSymbol.replacingOccurrences(of: "*", with: separator)
-                dateFormatter.dateFormat = format
+                dateFormatter.dateFormat = dateFormat.format(separator: separator)
                 text = dateFormatter.string(from: newValue!)
             } else {
                 text = nil
@@ -130,6 +135,13 @@ extension DateTextField: UITextFieldDelegate {
             let month = splitString.count > 0 ? splitString[0] : ""
             let year = splitString.count > 2 ? splitString[2] : ""
             textField.text = final(day: day, month: month, year: year)
+        case .yearMonthDay:
+            guard numbersOnly.count <= 8 else { return false }
+            let splitString = split(string: numbersOnly, format: [4, 2, 2])
+            let year = splitString.count > 0 ? splitString[0] : ""
+            let month = splitString.count > 1 ? splitString[1] : ""
+            let day = splitString.count > 2 ? splitString[2] : ""
+            textField.text = final(day: day, month: month, year: year)
         }
         customDelegate?.dateDidChange(dateTextField: self)
         return false
@@ -173,6 +185,11 @@ extension DateTextField: UITextFieldDelegate {
             dateString = dateString.replacingOccurrences(of: "$", with: separator)
         } else {
             dateString = dateString.replacingOccurrences(of: "$", with: "")
+        }
+        if year.count >= 4 {
+            dateString = dateString.replacingOccurrences(of: "&", with: separator)
+        } else {
+            dateString = dateString.replacingOccurrences(of: "&", with: "")
         }
 
         return dateString.replacingOccurrences(of: "'", with: "")
