@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "DateTextField"
-  s.version      = "2.1.0"
+  s.version      = "2.2.0"
   s.summary      = "A date input textfield"
   s.swift_version = '5.1'
 
