@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-protocol DateTextFieldDelegate: AnyObject {
+public protocol DateTextFieldDelegate: AnyObject {
     func dateDidChange(dateTextField: DateTextField)
 }
 
