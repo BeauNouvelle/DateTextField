@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-protocol DateTextFieldDelegate: AnyObject {
+public protocol DateTextFieldDelegate: AnyObject {
     func dateDidChange(dateTextField: DateTextField)
 }
 
@@ -40,7 +40,7 @@ public class DateTextField: UITextField {
     /// The symbol you wish to use to separate each date segment. e.g. "01 - 01 - 2012", "01 / 03 / 2019"
     /// **Default:** `" / "`
     public var separator: String = " / "
-    weak var customDelegate: DateTextFieldDelegate?
+    public weak var customDelegate: DateTextFieldDelegate?
 
     /// Parses the `text` property into a `Date` and returns that date if successful.
     /// If unsuccessful, the value will be nil and you'll need to show this in your UI.
